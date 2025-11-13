@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21.0.2" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.habittracker.controller.DashboardController">
+    <top>
+        <HBox spacing="10" padding="10">
+            <Label fx:id="userLabel" text="Welcome"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button fx:id="addHabitButton" text="Add Habit" onAction="#onAddHabit"/>
+            <Button fx:id="markTodayButton" text="Mark Today" onAction="#onMarkToday"/>
+            <Button fx:id="deleteHabitButton" text="Delete Habit" onAction="#onDeleteHabit"/>
+            <Button fx:id="exportButton" text="Export CSV" onAction="#onExport"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="8" padding="10">
+            <Label text="Habits"/>
+            <ListView fx:id="habitListView" prefWidth="260"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="8" padding="10">
+            <Label text="Weekly Completions"/>
+            <LineChart fx:id="weeklyLineChart">
+                <xAxis>
+                    <CategoryAxis fx:id="xAxis"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="yAxis" lowerBound="0" upperBound="3" tickUnit="1"/>
+                </yAxis>
+            </LineChart>
+        </VBox>
+    </center>
+
+    <bottom>
+        <VBox spacing="8" padding="10">
+            <Label text="Suggestions"/>
+            <TextArea fx:id="suggestionsArea" prefRowCount="3"/>
+        </VBox>
+    </bottom>
+</BorderPane>
